@@ -12,25 +12,6 @@ My first end-to-end data warehousing project, built entirely in **Databricks SQL
 -  Surrogate keys generated with `ROW_NUMBER()`
 -  Incremental data loading
 -  Slowly Changing Dimension (SCD) Type 1 using `MERGE INTO`
-
----
-
-##  Architecture
-
-```mermaid
-flowchart LR
-    A[Source: sales_new_scd.orders] --> B[Staging Layer\nordersDwh.stg_sales]
-    B --> C[Transformation Layer\nordersDwh.trans_sales\n(filters nulls)]
-    C --> D1[DimCustomers]
-    C --> D2[DimProducts]
-    C --> D3[DimRegion]
-    C --> D4[DimDate]
-    D1 --> F[FactSales]
-    D2 --> F
-    D3 --> F
-    D4 --> F
-```
-
 ---
 
 ##  Pipeline Layers
